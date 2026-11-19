@@ -1,0 +1,31 @@
+# 1. Игнорировать абсолютно всё в /home/dmitry/Work по умолчанию
+/*
+
+# 2. Разрешить .gitignore и родительские каталоги первого уровня
+!.gitignore
+!/VSprojects/
+!/ESP32/
+
+# 3. Внутри /VSprojects/ заблокировать всё, кроме нужного проекта
+/VSprojects/*
+!/VSprojects/ble_mqtt_bridge/
+
+# 4. Внутри /ESP32/ заблокировать всё, открыть промежуточную папку Projects/,
+# затем заблокировать всё внутри Projects/ и открыть только 3 целевых проекта
+/ESP32/*
+!/ESP32/Projects/
+/ESP32/Projects/*
+!/ESP32/Projects/ESP32C6_MQTT_Sensor_on_BLE/
+!/ESP32/Projects/ESP32C6_MQTT_Sensor_on_WiFi/
+!/ESP32/Projects/ESP32C6_Sensor_on_WiFi_WebSocket/
+
+# 5. Исключить папки сборки и кэш на любом уровне вложенности
+**/build/
+**/build-*/
+**/Debug/
+**/Release/
+**/managed_components/
+**/dependencies.lock
+**/sdkconfig.old
+**/.cache/
+**/compile_commands.json
